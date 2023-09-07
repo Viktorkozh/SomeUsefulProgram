@@ -1,2 +1,3 @@
 # SomeUsefulProgram
-I dont know whats gonna be here
+Кожуховский Виктор
+ИВТ-б-о-22-1
