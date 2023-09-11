@@ -1,13 +1,7 @@
 import tkinter as tk
 
-
-# Set the initial direction
-
-global direction
-direction = "right"
-
 def start_program():
-    message_label.config(text="It just works")
+    message_label.config(text="It just works ")
 
 def rotate_text():
     global direction
@@ -33,20 +27,28 @@ def rotate_text():
         message_label.place(x=message_label.winfo_x() - 1, y=message_label.winfo_y())
     elif direction == "up":
         message_label.place(x=message_label.winfo_x(), y=message_label.winfo_y() - 1)
-    message_label.after(15, rotate_text)
+    message_label.after(101-speed_slider.get(), rotate_text)
 
 # Create the main window
 window = tk.Tk()
 window.title("Program")
-window.geometry("300x200")
+window.geometry("300x250")
 
 # Create a label to display the message
 message_label = tk.Label(window, text=" ")
-message_label.pack(pady=50)
+message_label.pack(pady=20)
 
 # Create a start button
 start_button = tk.Button(window, text="Start", command=start_program)
-start_button.place(relx=0.5, rely=0.5, anchor="center")
+start_button.place(relx=0.5, rely=0.4, anchor="center")
+
+# Create a speed of rotation slider
+speed_slider = tk.Scale(window, from_=1, to=100, orient="horizontal", length=200)
+speed_slider.set(1)
+speed_slider.place(relx=0.5, rely=0.6, anchor="center")
+
+# Set the initial direction
+direction = "right"
 
 # Start rotating the text
 rotate_text()
